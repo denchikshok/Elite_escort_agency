@@ -1,0 +1,113 @@
+{% load get_group %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'main/aa.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        .great-vibes-regular {
+          font-family: "Great Vibes", cursive!important;
+          font-weight: 400!important;
+          font-style: normal!important;
+        }
+        body {
+            font-family: 'Great Vibes', cursive;
+            font-size: 25px;
+        }
+        h1 {
+            font-size: 54px;
+        }
+        p {
+            font-size: 25px;
+        }
+        h3 {
+            font-size: 42px;
+        }
+        .btn-success {
+            background-color: #CDAD00;
+            border-color: #CDAD00;
+        }
+        .btn-success:focus{
+            background-color: #CDAD00;
+            border-color: #b89e14;
+        }
+        .btn-success:hover{
+            background-color: #b89e14;
+            border-color: #b89e14;
+        }
+        .btn:focus{
+            background-color: #CDAD00;
+            border-color: #b89e14;
+        }
+
+    </style>
+    <title>Elite escort agency</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/"><h3>ShcherBash69</h3></a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                    <li><a href="{% url 'main:home' %}" class="mr-2 text-light">Главная</a></li>
+                {% if user.is_authenticated %}
+                    {% if request.user|has_group:"admin_owner" %} 
+                        <li><a href="{% url 'main:admin_dashboard' %}" class="mr-2 text-light">Панель</a></li>
+                        <li>
+                            <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="mr-2">Выйти</button>
+                            </form>
+                        </li> 
+                    {% else %}
+                        <li><a href="{% url 'main:cart' %}" class="mr-2 text-light">Моя девочки👩🏻</a></li>
+                        <li><a href="{% url 'main:order_details' %}" class="mr-2 text-light">Мои заказы</a></li>
+                        <li>
+                            <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="mr-2">Выход</button>
+                            </form>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li><a href="{% url 'accounts:login' %}" class="mr-2 text-light">Войти</a></li>
+                    <li><a href="{% url 'accounts:signup' %}" class="mr-2 text-light">Зарегистрироваться</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <main role="main">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $('.carousel').carousel();
+    </script>

@@ -1,0 +1,25 @@
+.bg-danger {
+    background-color: #000000 !important; /* Замените #your-color на нужный вам цвет */
+}
+.navbar-dark {
+    background-color: #000000 !important; /* Замените #your-navbar-color на нужный вам цвет */
+}
+
+.bg-primary {
+    background-color: #000000!important; /* Замените #your-bg-primary-color на нужный вам цвет */
+}
+
+.great-vibes-regular {
+  font-family: "Great Vibes", cursive!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+body {
+    font-family: 'Great Vibes', cursive;
+}
+btn-success {
+    background-color: #ffd700!important;
+}
+btn {
+    background-color: #ffd700!important;
+}

@@ -1,0 +1,53 @@
+{% extends "main/layout2.html" %}
+{% block content %}
+<div class="cart">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="text-center">Активные заказы</h3>
+                {% if items %}
+                <div class="table-responsive">
+                    <table class="table table-dark">
+                        <thead>
+                        <tr>
+                            <td scope="col">Номер заказа</td>
+                            <th scope="col">Пользователь</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Имя</th>
+                            <th scope="col">Описание</th>
+                            <th scope="col">Стоимость</th>
+                            <th scope="col">Статус</th>
+                            <th scope="col">Change Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in items %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.user.username }}</td>
+                            <td>{{ item.user.email}}</td>
+                            <td>{{ item.item.title }} <span class="badge badge-{{ item.item.label_colour }}">{{ item.item.labels }}</span></td>
+                            <td>{{ item.item.description }}</td>
+                            <td>{{ item.item.price }}$</td>
+                            <td>{{ item.status }}</td>
+                            <td>
+                                <form method="POST" action="{% url 'main:update_status' item.id %}" style="display: flex;">
+                                    {% csrf_token %}
+                                    <select class="form-control" name="status">
+                                        <option value="В процессе" selected="selected">В процессе</option>
+                                        <option value="Выполнен">Выполнен</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary">Изменить</button>
+                                </form>
+                            </td>
+                        </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <h4 class="text-center">Никто все еще не опробовал наших девочек!!!</h4>
+                {% endif %}
+            </div>
+        </div>
+</div>
+{% endblock content %}
