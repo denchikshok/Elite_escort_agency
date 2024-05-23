@@ -13,6 +13,7 @@
                         <th scope="col">Описание</th>
                         <th scope="col">Рост</th>
                         <th scope="col">Вес</th>
+                        <th scope="col">Размер груди</th>
                         <th scope="col">Цена</th>
                         <th></th>
                         <th></th>
@@ -26,6 +27,7 @@
                         <td>{{ item.description }}</td>
                         <td>{{ item.height }}см</td>
                         <td>{{ item.weight }}кг</td>
+                        <td>{{ item.boobs }}</td>
                         <td>{{ item.price }}$</td>
                         <td><a class="btn btn-primary" href="{% url 'main:item-update' item.slug %}">Обновить</a></td>
                         <td><a class="btn btn-danger" href="{% url 'main:item-delete' item.slug %}">Удалить</a></td>

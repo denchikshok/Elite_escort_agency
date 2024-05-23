@@ -21,6 +21,7 @@
               <h3>${{ item.price }}</h3>
               <h4>Вес: {{ item.weight }} кг</h4>
               <h4>Рост: {{ item.height }} см</h4>
+              <h4>Размер груди: {{ item.boobs }}</h4>
             </div>
             <a href="{% url 'main:add-to-cart' item.slug %}" class="btn btn-success btn-md my-0 p">Приготовить девочку для вызова</a>
           </div>

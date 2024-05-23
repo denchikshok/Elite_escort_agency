@@ -23,6 +23,7 @@ class Item(models.Model):
     price = models.FloatField()
     age = models.IntegerField(default=0)
     weight = models.IntegerField(default=0)
+    boobs = models.IntegerField(default=0)
     height = models.IntegerField(default=0)
     education = models.CharField(max_length=250, blank=True)
     hobbies = models.CharField(max_length=250, blank=True)

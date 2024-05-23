@@ -12,6 +12,7 @@ class ItemAdmin(admin.ModelAdmin):
         ("Age", {'fields': ["age"]}),
         ("Weight", {'fields': ["weight"]}),
         ("Height", {'fields': ["height"]}),
+        ("Boobs", {'fields': ["boobs"]}),
         ("Education", {'fields': ["education"]}),
         ("Hobbies", {'fields': ["hobbies"]}),
         ("Labels", {'fields': ["labels"]}),

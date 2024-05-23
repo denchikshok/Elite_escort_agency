@@ -43,7 +43,7 @@ def add_reviews(request):
 
 class ItemCreateView(LoginRequiredMixin, CreateView):
     model = Item
-    fields = ['title', 'image', 'description', 'price', 'age', 'weight', 'height', 'education', 'hobbies', 'labels', 'label_colour', 'slug']
+    fields = ['title', 'image', 'description', 'price', 'age', 'weight', 'height','boobs', 'education', 'hobbies', 'labels', 'label_colour', 'slug']
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
@@ -51,7 +51,7 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
 
 class ItemUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Item
-    fields = ['title', 'image', 'description', 'price', 'age', 'weight', 'height', 'education', 'hobbies', 'labels', 'label_colour', 'slug']
+    fields = ['title', 'image', 'description', 'price', 'age', 'weight', 'height', 'boobs','education', 'hobbies', 'labels', 'label_colour', 'slug']
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user

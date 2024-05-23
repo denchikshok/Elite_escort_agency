@@ -16,6 +16,7 @@
                             <th scope="col">Описание</th>
                             <th scope="col">Вес</th>
                             <th scope="col">Рост</th>
+                            <th scope="col">Размер груди</th>
                             <th scope="col">Цена</th>
                             <th scope="col">Статус заказа</th>
                         </tr>
@@ -28,6 +29,7 @@
                             <td>{{ item_active.item.description }}</td>
                             <td>{{ item_active.item.weight }}</td>
                             <td>{{ item_active.item.height }}</td>
+                            <td>{{ item_active.item.boobs }}</td>
                             <td>{{ item_active.item.price }}</td>
                             <td>{{ item_active.status }}</td>
                         </tr>
@@ -54,6 +56,7 @@
                             <th scope="col">Описание</th>
                             <th scope="col">Вес</th>
                             <th scope="col">Рост</th>
+                            <th scope="col">Размер груди</th>
                             <th scope="col">Цена</th>
                             <th scope="col">Статус заказа</th>
                         </tr>
@@ -65,7 +68,8 @@
                             <td>{{ cart.item.title }} <span class="badge badge-{{ cart.item.label_colour }}">{{ cart.item.labels }}</span></td>
                             <td>{{ cart.item.description }}</td>
                             <td>{{ cart.item.weight }}</td>
-                            <td>{{ cart.height }}</td>
+                            <td>{{ cart.item.height }}</td>
+                            <td>{{ cart.item.boobs }}</td>
                             <td>{{ cart.item.price }}$</td>
                             <td>{{ cart.status }}</td>
                         </tr>
